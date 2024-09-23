@@ -1,0 +1,59 @@
+객체형
+    비 원시 타입 자료형
+
+
+객체 Object
+
+    type name = {
+        key1: value1,
+        key2: value2,
+        key3: value3,
+        .
+        .
+    };
+
+    객체에 value 값에는 undefined, 함수 등 어떠한 자료형을 넣어도 오류가 발생하지 않음.
+
+
+    value 호출하는 방법
+
+        1) 점표기법
+            console.log(name.key1); // 출력: value1
+        2) 괄호표기법
+            console.log(name["key2"]); // 출력: value2
+
+
+    함수로 호출하는 방법
+
+        function funcName = (key) => {
+            console.log(name[key]);
+        }
+
+        funcName("key3"); // 출력: value3
+
+
+    객체의 키, 값을 추가하는 방법(type이 let, const 상관없이 아래와 같은 방법으로 수정도 할 수 있다.)
+    단, 객체 자체를 수정하려 할 때에는 const type은 수정할 수 없다.
+
+        1) 점표기법
+            name.key4 = "value4";
+        2) 괄호표기법
+            name["key5"] = "value5";
+
+    객체의 키, 값을 삭제할 때도 동일하게 사용하나 각 표기법 앞에 delete를 추가해야한다.
+        1) delete name.key1;
+        2) delete name["key1"];
+
+
+    객체 내부에 value 값이 함수로 설정되면 이를 메서드라고 정의함.
+    이때 메소드는 동일한 객체 내에서 다른 프로퍼티들을 출력할 수 있다.
+
+     type name = {
+        key1: value1,
+        key2: function () {
+            console.log(`이를 통해 나타낼 값은 ${this.key1}입니다.`);
+        },
+    };
+
+    // 메소드 호출
+    name.key2(); // 출력: 이를 통해 나타낼 값은 value1입니다.
