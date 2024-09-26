@@ -1,0 +1,55 @@
+생성자 함수(Constuctor Function)
+
+    let name = new name;
+
+    여러 객체를 생성할 때
+
+    예를 들어 단순 변수를 통해 객체를 생성할 때,
+
+        const person1 = {
+            name: "홍길동",
+            age: 30,
+            job: "Manager",
+            sayHi: function () {
+                console.log("안녕하세요!" + this.name + "입니다");
+            },
+        };
+
+        const person2 = {
+            name: "김철수",
+            age: 25,
+            job: "Designer",
+            sayHi: function () {
+                console.log("안녕하세요!" + this.name + "입니다");
+            },
+        };
+
+        console.log(person1.name);  //  출력:   홍길동
+        console.log(person2.age);   //  출력:   25
+        person1.sayHi();            //  출력:   안녕하세요!홍길동입니다
+        person2.sayHi();            //  출력:   안녕하세요!김철수입니다
+
+    위와 같이 여러 작업을 동일 반복해야하는 문제점이 생기고 새로운 객체를 생성할 때 위 작업을 반복해야한다.
+
+    하지만 생성자 함수를 사용하면 효율적으로 객체를 생성하고 추가할 수 있다.
+
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayHi = function () {
+            console.log("안녕하세요!" + this.name + "입니다");
+        };
+    }
+
+    // 미리 만들어둔 함수에 생성자 함수로 쉽게 객체르 만들 수 있다.
+    const person1 = new Person("홍길동", 30, "Manager");
+    const person2 = new Person("김철수", 25, "Designer");
+    
+    // 아래와 같이 동일한 결과값이 출력되는 것을 확인할 수 있다.
+    console.log(person1.name);  //  출력:   홍길동
+    console.log(person2.age);   //  출력:   25
+    person1.sayHi();            //  출력:   안녕하세요!홍길동입니다
+    person2.sayHi();            //  출력:   안녕하세요!김철수입니다
+
+    생성자 함수의 장점을 요약하면 코드의 재사용성을 높이고 반복되는 코드를 감소하며 동일한 구조를 가진 객체를 쉽게 생성할 수 있다는 것이다.
