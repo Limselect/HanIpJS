@@ -1,0 +1,145 @@
+반복문(Iteration)
+
+    특정 작업을 반복적으로 수행 할 때 사용
+
+        // 1~5까지 출력하는 프로그램, 반복문 사용 X
+        console.log(1);
+        console.log(2);
+        console.log(3);
+        console.log(4);
+        console.log(5);
+
+        // 1~5까지 출력하는 프로그램, for 반복문 사용 O
+        for(let i = 1; i <= 5; i++) {
+            console.log(i);
+        }
+
+        // 출력 : 1
+        // 출력 : 2
+        // 출력 : 3
+        // 출력 : 4
+        // 출력 : 5        
+
+    (변수 i는 1인데; 5와 같거나 5보다 작아야하고; i는 1씩 증가시켜줄게요)
+    1, 2, 3, 4, 5가 출력되고 주어진 조건을 모두 만족 햇으니 for 문을 탈출하게 된다.
+
+    위와 같이 for반복문은 초기식, 조건식, 증감식을 가지고 있다.
+
+
+    // 1~5까지 출력하는 프로그램, while 반복문 사용 O
+        let i = 1;
+        while(i <= 5) {
+            console.log(i);
+            i++;
+        }
+
+        // 출력 : 1
+        // 출력 : 2
+        // 출력 : 3
+        // 출력 : 4
+        // 출력 : 5
+
+    while 문은 조건식을 부여하고 만족되는 만큼 {} 안에 내용을 반복함.
+
+
+    배열의 모든 요소에 접근해야 할 때, 유용함
+        let arr = [1, 2, 3, 4, 5];
+
+        // 인덱스 넘버는 0부터 시작해 초기식에 0의 값을 할당하고
+        // 배열의 길이보다 1씩 작아 1을 빼줘야 한다 (또는 i < arr.length)
+
+        for (let i = 0; i <= arr.length - 1; i++) {
+        console.log(arr[i]);
+        }
+
+        // 출력 : 1
+        // 출력 : 2
+        // 출력 : 3
+        // 출력 : 4
+        // 출력 : 5
+
+        
+    객체를 배열로 변경하는 방법
+
+        let person = {
+            name: "홍길동",
+            age: 25,
+            height: 180
+        }
+
+        // 1. Object.keys 활용
+
+        console.log(Object.keys(person));
+        // 출력: ["name", "age", "height"]
+
+        let arr = Object.keys(person);
+
+        for(let i = 0; i < arr.length; i++) {
+            let key = arr[i];
+            console.log(`${key}: ${person(key)});
+        }
+
+        // 출력 : name: 홍길동
+        // 출력 : age: 25
+        // 출력 : height: 180
+
+        // 2. Object.values 활용
+
+        console.log(Object.values(person));
+        // 출력: ["홍길동, "25", "180"]
+
+        let arr = Object.values(person);
+
+        for(let i = 0; i < arr.length; i++) {
+            console.log(`value: ${arr[i]});
+        }
+
+        // 출력: value: 홍길동
+        // 출력: value: 25
+        // 출력: value: 180
+
+        // 3. Object.entries: 객체의 키와 밸류 값을 객체 형태로 전달함
+
+        console.log(Object.entries(person));
+        // 출력 : [Array(2), Array(2), Array(2)]
+
+        let arr = Object.entries(person);
+
+        for(let i = 0; i < arr.length; i++) {
+            console.log(`key: ${arr[i][0]}, value: ${arr[i][1]});
+        }
+
+
+    for, while 외 다른 반복문들
+
+        // 1. for of 모든 배열의 값에 접근할 때,
+
+        let arr = [1, 2, 3, 4, 5];
+
+        for(let i of arr) {
+            console.log(i);
+        }
+
+        // 출력 : 1
+        // 출력 : 2
+        // 출력 : 3
+        // 출력 : 4
+        // 출력 : 5
+
+
+
+        // 2. for Iteration 모든 객체의 키와 밸류 값에 접근할 때,
+
+        let person = {
+            name: "홍아무개",
+            age: 21,
+            height: 176
+        };
+
+        for (let j in person) {
+            console.log(`key: ${j}, value: ${person[j]});
+        }
+
+        // 출력: value: 홍아무개
+        // 출력: value: 21
+        // 출력: value: 176
